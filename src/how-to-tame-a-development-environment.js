@@ -24,6 +24,8 @@ const next = require('./assets/next.svg');
 const cra = require('./assets/cra.svg');
 const sb_1 = require('./assets/sb_1.png');
 const sb_2 = require('./assets/sb_2.png');
+const git_hooks = require('./assets/git_hooks.gif');
+const types = require('./assets/types.gif');
 
 const theme = createTheme(
     {
@@ -71,12 +73,45 @@ const Presentation = () => {
                     How to tame a development environment
                 </Heading>
                 <Notes>
-                    De onzichtbare prijs van moderne javascript, en hoe je die
-                    temt.
+                    Ons avontuur van het migreren naar een moderne js stack.
+                    Oftewel: Hoe tem je een ontwikkelomgeving
                     <br />
-                    Ik ga niet teveel in op implementatie details, ik ga niet
-                    een hele webpack config doornemen
                     <br />
+                    Ik ga niet teveel in op implementatie details, ik ga geen
+                    webpack config doornemen. Dan zijn we hier volgende week nog
+                    😅
+                </Notes>
+            </Slide>
+            <Slide bgColor="primary" align="flex-start center">
+                <Visual src={tail} />
+                <div>
+                    <Overline>What problems did we face?</Overline>
+                    <Heading size={4} textAlign="left" margin="0 0 24px 0">
+                        Once upon a time...
+                    </Heading>
+                    <List>
+                        <ListItem>2016 - jQuery/Twig codebase</ListItem>
+                        <ListItem>
+                            2017 - Started migrating to React and Typescript
+                        </ListItem>
+                        <ListItem>
+                            2017 - Started testing the frontend codebase
+                        </ListItem>
+                        <ListItem>
+                            2018 - We built a component library (Bricks)
+                        </ListItem>
+                        <ListItem>
+                            2018 - Released several features built with react
+                        </ListItem>
+                        <ListItem>2019 - Adopted Graphql</ListItem>
+                    </List>
+                </div>
+                <Notes>
+                    Slides in het engels, wist niet zeker of er ook engelse
+                    developers zouden komen.
+                    <br />
+                    <br />
+                    Hoe begon ons avontuur:
                 </Notes>
             </Slide>
             <Slide bgColor="primary">
@@ -102,42 +137,21 @@ const Presentation = () => {
                 <Visual src={tail} />
                 <div>
                     <Overline>What problems did we face?</Overline>
-                    <Heading size={4} textAlign="left" margin="0 0 24px 0">
-                        Once upon a time...
-                    </Heading>
-                    <List>
-                        <ListItem>2016 - jQuery/Twig codebase</ListItem>
-                        <ListItem>
-                            2017 - Started migrating to React and Typescript
-                        </ListItem>
-                        <ListItem>
-                            2017 - Started testing the frontend codebase
-                        </ListItem>
-                        <ListItem>2018 - We built a component library</ListItem>
-                        <ListItem>
-                            2018 - Released several features built with react
-                        </ListItem>
-                        <ListItem>2019 - Adopted Graphql</ListItem>
-                    </List>
-                </div>
-            </Slide>
-            <Slide bgColor="primary" align="flex-start center">
-                <Visual src={tail} />
-                <div>
-                    <Overline>What problems did we face?</Overline>
                     <Heading size={4} textAlign="left">
                         How can we keep our javascript infrastructure
                         maintainable?
                     </Heading>
-                    <Text textAlign="left" margin="36px 0 0 0">
-                        Only 4 FTE for frontend
-                    </Text>
-                    <Text textAlign="left" margin="24px 0 0 0">
-                        Multiple applications
-                    </Text>
-                    <Text textAlign="left" margin="24px 0 0 0">
-                        Lots of configuration
-                    </Text>
+                    <ul>
+                        <li>
+                            <Text textAlign="left">Only 4 frontenders</Text>
+                        </li>
+                        <li>
+                            <Text textAlign="left">Multiple applications</Text>
+                        </li>
+                        <li>
+                            <Text textAlign="left">Lots of configuration</Text>
+                        </li>
+                    </ul>
                 </div>
                 <Notes>
                     Configurations:
@@ -166,23 +180,30 @@ const Presentation = () => {
                             <Heading size={4} textAlign="left">
                                 Share tooling using a monorepo
                             </Heading>
-                            <List>
-                                <ListItem margin="36px 0 0 0">
-                                    <a
-                                        target="_blank"
-                                        href="https://github.com/lerna/lerna"
-                                    >
-                                        Lerna
-                                    </a>
-                                    &nbsp;with yarn workspaces
-                                </ListItem>
-                                <ListItem margin="36px 0">
-                                    Hoisted dependencies
-                                </ListItem>
-                                <ListItem>
-                                    Use process.env to filter configuration
-                                </ListItem>
-                            </List>
+                            <ul>
+                                <li>
+                                    <Text textAlign="left">
+                                        <a
+                                            target="_blank"
+                                            href="https://github.com/lerna/lerna"
+                                        >
+                                            Lerna
+                                        </a>
+                                        &nbsp;with yarn workspaces
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text textAlign="left">
+                                        Hoisted dependencies
+                                    </Text>
+                                </li>
+                                <li>
+                                    {' '}
+                                    <Text textAlign="left">
+                                        Use process.env to filter configuration
+                                    </Text>
+                                </li>
+                            </ul>
                         </div>
                         <img
                             style={{ height: '750px', marginLeft: '24px' }}
@@ -190,6 +211,7 @@ const Presentation = () => {
                         />
                     </div>
                 </div>
+                <Notes>Monorepo</Notes>
             </Slide>
             <Slide bgColor="primary" align="flex-start center">
                 <Visual src={tail} />
@@ -198,13 +220,23 @@ const Presentation = () => {
                         <Heading size={4} textAlign="left">
                             What we learned
                         </Heading>
-                        <br />
-                        <Text textAlign="left">Be prepared to get hacky</Text>
-                        <Text margin="36px 0" textAlign="left">
-                            Community configurations
-                            <br />
-                        </Text>
-                        <Text textAlign="left">Team size -> granularity</Text>
+                        <ul>
+                            <li>
+                                <Text textAlign="left">
+                                    Be prepared to get hacky
+                                </Text>
+                            </li>
+                            <li>
+                                <Text textAlign="left">
+                                    Community configurations
+                                </Text>
+                            </li>
+                            <li>
+                                <Text textAlign="left">
+                                    Team size -> granularity
+                                </Text>
+                            </li>
+                        </ul>
                     </div>
                     <div
                         style={{
@@ -227,19 +259,28 @@ const Presentation = () => {
                 <Heading size={4} textAlign="left">
                     How can we increase velocity?
                 </Heading>
-                <Text textAlign="left" margin="36px 0 0 0">
-                    Manual labour
-                </Text>
-                <Text textAlign="left" margin="36px 0 0 0">
-                    Slow checks
-                </Text>
-                <Text textAlign="left" margin="36px 0 0 0">
-                    Failing checks in reviews
-                </Text>
+                <ul>
+                    <li>
+                        <Text textAlign="left">Manual labour</Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">Slow checks</Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">Failing checks in reviews</Text>
+                    </li>
+                </ul>
                 <Notes>
-                    Manual labour: Reproducing app state
+                    Handwerk: Reproduceren van bepaalde situaties in je
+                    applicatie. <br />
                     <br />
-                    Shorter feedback loop on checks
+                    Naar een winkel ->
+                    <br />
+                    Product ->
+                    <br />
+                    Winkelwagen ->
+                    <br />
+                    Checkout
                 </Notes>
             </Slide>
             <Slide bgColor="primary" align="flex-start center">
@@ -248,24 +289,30 @@ const Presentation = () => {
                 <Heading size={4} textAlign="left" margin="36px 0 0 0">
                     Use a "development UI" like storybook
                 </Heading>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    Define multiple states per component.
-                </Text>
-                <Text margin="36px 0 0 0" textAlign="left">
-                    Develop components in isolation
-                </Text>
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        paddingTop: '48px',
-                    }}
-                >
-                    <img style={{ marginRight: '12px' }} src={sb_1} />
-                    ➡️
-                    <img style={{ marginLeft: '12px' }} src={sb_2} />
-                </div>
+                <ul>
+                    <li>
+                        <Text textAlign="left">
+                            Define multiple states per component.
+                        </Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">
+                            Develop components in isolation
+                        </Text>
+                    </li>
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            paddingTop: '48px',
+                        }}
+                    >
+                        <img style={{ marginRight: '12px' }} src={sb_1} />
+                        ➡️
+                        <img style={{ marginLeft: '12px' }} src={sb_2} />
+                    </div>
+                </ul>
             </Slide>
             <Slide>
                 <Visual src={wing} />
@@ -273,39 +320,79 @@ const Presentation = () => {
                 <Heading size={4} textAlign="left">
                     Only run checks on staged code
                 </Heading>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    Only changed files get checked
-                </Text>
-                <Text textAlign="left">Checks no longer fail in CI</Text>
-                <br />
+                <ul>
+                    <li>
+                        <Text margin="36px 0 24px 0" textAlign="left">
+                            Uses{' '}
+                            <a href="https://github.com/okonet/lint-staged">
+                                lint-staged
+                            </a>{' '}
+                            and{' '}
+                            <a href="https://github.com/typicode/husky">
+                                husky
+                            </a>
+                        </Text>
+                    </li>
+                    <li>
+                        <Text margin="0 0 24px 0" textAlign="left">
+                            Only changed files get checked
+                        </Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">
+                            Shorter feedback loop on checks
+                        </Text>
+                        <div style={{ display: 'flex', marginTop: '36px' }}>
+                            <img src={git_hooks} />
+                        </div>
+                    </li>
+                </ul>
+            </Slide>
+            <Slide>
+                <Visual src={wing} />
                 <Heading size={4} textAlign="left" margin="36px 0 0 0">
                     Generate typescript types for GraphQL
                 </Heading>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    No more writing/maintaining types by hand
-                </Text>
-                <Notes>
-                    Gamedev use development UI's all the time
-                    <br />
-                    Feedback loop on checks is faster, no more extra reviews
-                    required.
-                </Notes>
+                <ul>
+                    <li>
+                        <Text margin="36px 0 24px 0" textAlign="left">
+                            No more writing/maintaining types by hand
+                        </Text>
+                    </li>
+                </ul>
+                <div style={{ display: 'flex', marginTop: '36px' }}>
+                    <img src={types} />
+                </div>
+                <Notes>Also faster feedback loop. Generator warns you</Notes>
             </Slide>
             <Slide bgColor="primary" align="flex-start center">
                 <Visual src={wing} />
                 <Heading size={4} textAlign="left">
                     What we learned
                 </Heading>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    "Development UI" helps your filestructure stay flat
-                </Text>
-                <Text margin="0 0 24px 0" textAlign="left">
-                    States of components can be used in tests
-                </Text>
-                <Text margin="0 0 24px 0" textAlign="left">
-                    DX is a personal preference
-                </Text>
-                <Notes>Storybook can introduce fake hierarchy better</Notes>
+                <ul>
+                    <li>
+                        <Text margin="36px 0 24px 0" textAlign="left">
+                            "Development UI" helps your filestructure stay flat
+                        </Text>
+                    </li>
+                    <li>
+                        <Text margin="0 0 24px 0" textAlign="left">
+                            States of components can be used in tests
+                        </Text>
+                    </li>
+                    <li>
+                        <Text margin="0 0 24px 0" textAlign="left">
+                            Developer Experience is a personal preference
+                        </Text>
+                    </li>
+                </ul>
+                <Notes>
+                    Storybook can introduce fake hierarchy better
+                    <br />
+                    Persoonlijke voorkeur -> Configuratie om je configuraties te
+                    configureren. I heard you liked configs
+                </Notes>
             </Slide>
             <Slide bgColor="primary">
                 <Visual src={tailtip} />
@@ -313,13 +400,16 @@ const Presentation = () => {
                 <Heading size={4} textAlign="left">
                     Can we work parallel to backend?
                 </Heading>
-                <Text textAlign="left" margin="36px 0 0 0">
-                    Lots of dependencies for planning development
-                </Text>
-                <Text textAlign="left" margin="36px 0 0 0">
-                    Prototyping was hard
-                </Text>
-                <Text textAlign="left" margin="36px 0 0 0"></Text>
+                <ul>
+                    <li>
+                        <Text textAlign="left">
+                            Lots of dependencies for planning development
+                        </Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">Prototyping was hard</Text>
+                    </li>
+                </ul>
             </Slide>
             <Slide>
                 <Visual src={tailtip} />
@@ -327,25 +417,70 @@ const Presentation = () => {
                 <Heading size={4} textAlign="left">
                     Run a seperate mocking server
                 </Heading>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    Generate types without backend
-                </Text>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    Try out a schema before building it
-                </Text>
-                <Notes></Notes>
+                <ul>
+                    <li>
+                        <Text textAlign="left">
+                            Generate types without backend
+                        </Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">
+                            Try out a schema before building it
+                        </Text>
+                    </li>
+                </ul>
+                <Notes>3400 regels gegenereerd</Notes>
             </Slide>
             <Slide>
                 <Visual src={tailtip} />
                 <Heading size={4} textAlign="left">
                     What we learned
                 </Heading>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    Lacking mocking documentation (apollo)
-                </Text>
-                <Text margin="36px 0 24px 0" textAlign="left">
-                    Document your schema changes well
-                </Text>
+                <ul>
+                    <li>
+                        <Text textAlign="left">
+                            Lacking documentation on mocking (apollo)
+                        </Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">Schema ends up better</Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">
+                            Document your schema changes well!
+                        </Text>
+                    </li>
+                </ul>
+            </Slide>
+            <Slide>
+                <Heading size={4} textAlign="left">
+                    Takeaways 🥡
+                </Heading>
+                <ul>
+                    <li>
+                        <Text textAlign="left">Tailor to your own team</Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">Consider your "Customers"</Text>
+                    </li>
+                    <li>
+                        <Text textAlign="left">Try making a business case</Text>
+                    </li>
+                </ul>
+                <Notes>
+                    Krijg je al volledig vertrouwen 👍, anders -> Business case
+                </Notes>
+            </Slide>
+            <Slide>
+                Twitter: @CarloPalinckx
+                <br />
+                GitHub: CarloPalinckx
+                <br />
+                <br />
+                Blogs: <br />
+                medium.com/myonlinestore
+                <br />
+                dev.to/myonlinestore
             </Slide>
         </Deck>
     );
